@@ -15,9 +15,12 @@ class EventSourcer():
         list.append((-1 * num))
 
     def undo(self):
-        size = len(list)
-        undoList.append(list[size-1])
-        self.value = self.value - list.pop()
+        if(self.value != 0):
+            size = len(list)
+            undoList.append(list[size-1])
+            self.value = self.value - list.pop()
+        else:
+            pass
         
     def redo(self):
         self.value = self.value + undoList.pop()
