@@ -23,7 +23,10 @@ class EventSourcer():
             pass
         
     def redo(self):
-        self.value = self.value + undoList.pop()
+        if(self.value != 0):
+            self.value = self.value + undoList.pop()
+        else:
+            pass
         
     def bulk_undo(self, steps: int):
         for x in range(steps):
