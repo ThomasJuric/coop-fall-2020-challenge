@@ -5,10 +5,11 @@ class EventSourcer():
         self.value = 0
 
     def add(self, num: int):
-        pass
-
+        self.value = self.value + num
+    
     def subtract(self, num: int):
-        pass
+        self.value = self.value - num
+        
 
     def undo(self):
         pass
