@@ -1,4 +1,5 @@
 list = []
+undoList = []
 
 class EventSourcer():
     # Do not change the signature of any functions
@@ -11,19 +12,22 @@ class EventSourcer():
     
     def subtract(self, num: int):
         self.value = self.value + (-1 * num)
-        list.append(-1 * num)
+        list.append((-1 * num))
 
     def undo(self):
+        size = len(list)
+        undoList.append(list[size-1])
         self.value = self.value - list.pop()
         
     def redo(self):
-        pass
-
+        self.value = self.value + undoList.pop()
+        
     def bulk_undo(self, steps: int):
         for x in range(steps):
             self.undo()
 
     def bulk_redo(self, steps: int):
-        pass
+        for x in range(steps):
+            self.redo()
 
     
