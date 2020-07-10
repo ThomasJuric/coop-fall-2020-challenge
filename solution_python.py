@@ -41,6 +41,7 @@ class EventSourcer():
     # Loop through previous functions
     def bulk_redo(self, steps: int):
         for x in range(steps):
-            self.redo()
+            if (self.value != 25):
+                self.redo()
 
     
